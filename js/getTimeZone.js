@@ -8,6 +8,7 @@ $('#timezoneBtn').click(async function() {
         type: 'POST'
         })
 
+        $countryCode = $('#dd_country').val();
         for(let i = 0; i < $data['data'].length; i++) {
             if($countryCode === $data['data'][i]['countryCode']) {
                 $north = $data['data'][i]['north'];
@@ -47,6 +48,7 @@ $('#timezoneBtn').click(async function() {
                 $('#timezoneMsg').html('Unfortunately the geonames api currently holds no timezone data on this country!')
             }else{
                 $('#timezoneMsg').html('');
+                $('localName').html($result['data'][0]['toponymName']);
                 $('#currentTime').html($result['data'][0]['time']);
                 $('#timezoneId').html($result['data'][0]['timezoneId']);
                 $('#gmt').html($result['data'][0]['gmtOffset']);
@@ -60,7 +62,7 @@ $('#timezoneBtn').click(async function() {
 
     }
     catch(err) {
-        console.error("getTimezone.js Error: "+err);
+        console.error("getTimezone.js Error: "+err.message);
     }
 
 });
