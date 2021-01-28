@@ -6,10 +6,12 @@
         <title>Most Recent Weather Observation</title>
         <meta name="description" content="a basic website to display the most recent weather observations" >
         <meta name="author" content="Imad Sayed" >
+        <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+        <!--I have added scripts to the head tag as I want these loaded before the HTML -->
         <script type="application/javascript" src="js/jquery-2.2.3.min.js"></script>
 		<script type="application/javascript" src="js/getCountriesScript.js"></script>
     </head>
-    <body style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <body>
         <!--<label for="country">Enter a <strong>country</strong> name:</label>
         <input name="country" id="country">
         <p style="display: inline; margin: 0px 20px;"><strong> OR </strong> choose from list</p>-->
@@ -17,26 +19,26 @@
         <select id="dd_country"></select>
         <button id="btnSubmit">Get Weather</button>
 
-        <div id="weatherDiv" style="display: block; margin-top: 100px;">
-            <h2 id="msg" style="color: red; font-weight: 600;"></h2>
-            <table>
+        <div id="weatherDiv">
+            <h2 id="msg"></h2>
+            <table class="topTable">
                 <tr>
-                    <th style="text-align: left;">Date</th><td id="date"></td>
+                    <th>Date</th><td id="date"></td>
                 </tr>
                 <tr>
-                    <th style="text-align: left;">Weather Station</th><td id="station"></td>
+                    <th>Weather Station</th><td id="station"></td>
                 </tr>
                 <tr>
-                    <th style="text-align: left;">Longitude</th><td id="longitude"></td>
+                    <th>Longitude</th><td id="longitude"></td>
                 </tr>
                 <tr>
-                    <th style="text-align: left;">Latitude</th><td id="latitude"></td>
+                    <th>Latitude</th><td id="latitude"></td>
                 </tr>
             </table>
             <br />
             <hr />
             <br />
-            <table>
+            <table class="bottomTable">
                 <thead>
                     <tr>
                         <th>Weather Attribute</th>
@@ -72,19 +74,3 @@
         <script type="application/javascript" src="js/getWeatherScript.js"></script>
     </body>
 </html>
-
-<!--
-    {"lng":-78.1672389,"observation":"KGVQ 280007Z AUTO 30007KT 10SM BKN026 M07/M08 A3019 RMK AO2 FZRANO",
-    "ICAO":"KGVQ",
-    "clouds":"broken clouds",
-    "dewPoint":"-8",
-    "cloudsCode":"BKN",
-    "datetime":"2021-01-28 00:07:00",
-    "temperature":"-7",
-    "humidity":92,
-    "stationName":"Genesee County Airport",
-    "weatherCondition":"n/a",
-    "windDirection":300,
-    "windSpeed":"07",
-    "lat":43.0317266}
--->

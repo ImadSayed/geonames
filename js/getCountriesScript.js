@@ -34,11 +34,8 @@ $.ajax({
                     container.appendChild(opt);
                 }
             }
-
-
             //fillCountryList();
             fillDropDownList();
-
         }
     
     },
@@ -47,3 +44,18 @@ $.ajax({
         console.log("Error - getCountriesScript.js - : "+error.message);
     }
 }); 
+
+/*
+    {"lng":-78.1672389,"observation":"KGVQ 280007Z AUTO 30007KT 10SM BKN026 M07/M08 A3019 RMK AO2 FZRANO",
+    "ICAO":"KGVQ",
+    "clouds":"broken clouds",
+    "dewPoint":"-8",
+    "cloudsCode":"BKN",
+    "datetime":"2021-01-28 00:07:00",
+    "temperature":"-7",
+    "humidity":92,
+    "stationName":"Genesee County Airport",
+    "weatherCondition":"n/a",
+    "windDirection":300,
+    "windSpeed":"07",
+*/

@@ -1,0 +1,24 @@
+body {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#btnSubmit {
+    margin-top: 25px;
+}
+
+#weatherDiv {
+    display: block; 
+    margin-top: 100px;
+}
+
+#msg {
+    color: red; 
+    font-weight: 600;
+}
+
+.topTable tr th {
+    text-align: left;
+}
