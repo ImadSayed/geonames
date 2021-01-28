@@ -6,14 +6,16 @@ body {
     align-items: center;
 }
 
-#weatherDiv {
+.tableDiv {
     max-width: 15%;
     margin-top: 100px;
     display: flex;
     flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-#btnSubmit {
+.btn {
     margin-top: 20px;
     align-self: center;
     width: fit-content;
@@ -26,6 +28,15 @@ body {
     text-align: center;
 }
 
-.topTable tr th {
+.mainDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.weatherTable tr :first-child {
+    text-align: left;
+}
+.timezoneTable tr :first-child {
     text-align: left;
 }

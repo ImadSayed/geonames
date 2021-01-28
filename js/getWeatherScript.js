@@ -35,7 +35,6 @@ $('#btnSubmit').click(async function() {
                 $('#msg').html('Unfortunately the geonames api currently holds no weather data on this country!')
             }else{
                 $('#msg').html('');
-                $('#date').html($result['data'][0]['datetime']);
                 $('#station').html($result['data'][0]['stationName']);
                 $('#longitude').html($result['data'][0]['lng']);
                 $('#latitude').html($result['data'][0]['lat']);

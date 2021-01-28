@@ -9,65 +9,94 @@
         
     </head>
     <body>
-        <label for="dd_country">Enter a <strong>country</strong> name:</label>
+        <label for="dd_country">Select a <strong>country</strong> name:</label>
         <select id="dd_country"></select>
-        
+        <table class="topTable">
+            <tr>
+                <th>Longitude</th><td id="longitude"></td>
+            </tr>
+            <tr>
+                <th>Latitude</th><td id="latitude"></td>
+            </tr>
+        </table>
 
-        <div id="weatherDiv">
-            <button id="btnSubmit">Get Weather</button>
-            <h2 id="msg"></h2>
-            <table class="topTable">
-                <tr>
-                    <th>Date</th><td id="date"></td>
-                </tr>
-                <tr>
-                    <th>Weather Station</th><td id="station"></td>
-                </tr>
-                <tr>
-                    <th>Longitude</th><td id="longitude"></td>
-                </tr>
-                <tr>
-                    <th>Latitude</th><td id="latitude"></td>
-                </tr>
-            </table>
-            <br />
-            <hr />
-            <br />
-            <table class="bottomTable">
-                <thead>
+        <div class="mainDiv">
+            <div id="weatherDiv" class="tableDiv">
+                <button id="btnSubmit" class="btn">Get Weather</button>
+                <h2 id="msg"></h2>
+                <table class="weatherTable">
                     <tr>
-                        <th>Weather Attribute</th>
-                        <th>Data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Temperature(deg Celsius)</td><td id="temperature"></td>
+                        <th>Weather Station</th>
                     </tr>
                     <tr>
-                        <td>Humidity</td><td id="humidity"></td>
+                        <td id="station"></td>
+                    </tr>
+                </table>
+                <hr />
+                <table class="weatherTable">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Temperature(Celsius)</td><td id="temperature"></td>
+                        </tr>
+                        <tr>
+                            <td>Humidity</td><td id="humidity"></td>
+                        </tr>
+                        <tr>
+                            <td>Weather Condition</td><td id="condition"></td>
+                        </tr>
+                        <tr>
+                            <td>Wind Direction</td><td id="direction"></td>
+                        </tr>
+                        <tr>
+                            <td>Wind Speed</td><td id="speed"></td>
+                        </tr>
+                        <tr>
+                            <td>Clouds</td><td id="clouds"></td>
+                        </tr>
+                        <tr>
+                            <td>Dew Point</td><td id="dew"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="timezoneDiv" class="tableDiv">
+                <button id="timezoneBtn" class="btn">Get Timezone</button>
+                <h2 id="timezoneMsg"></h2>
+                <table class="timezoneTable">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Current Time</td><td id="currentTime"></td>
                     </tr>
                     <tr>
-                        <td>Weather Condition</td><td id="condition"></td>
+                        <td>Timezone ID</td><td id="timezoneId"></td>
                     </tr>
                     <tr>
-                        <td>Wind Direction</td><td id="direction"></td>
+                        <td>GMT Offset</td><td id="gmt"></td>
                     </tr>
                     <tr>
-                        <td>Wind Speed</td><td id="speed"></td>
+                        <td>DST Offset</td><td id="dst"></td>
                     </tr>
                     <tr>
-                        <td>Clouds</td><td id="clouds"></td>
+                        <td>Sunrise</td><td id="sunrise"></td>
                     </tr>
                     <tr>
-                        <td>Dew Point</td><td id="dew"></td>
+                        <td>Sunset</td><td id="sunset"></td>
                     </tr>
-                </tbody>
-            </table>
+                </table>
+            </div>
         </div>
-
-        
-        
         <script type="application/javascript" src="js/jquery-2.2.3.min.js"></script>
 		<script type="application/javascript" src="js/getCountriesScript.js"></script>
         <script type="application/javascript" src="js/getWeatherScript.js"></script>
