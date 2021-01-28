@@ -21,7 +21,7 @@ body {
     width: fit-content;
 }
 
-#msg {
+.msg {
     color: red; 
     font-size: small;
     font-weight: 600;

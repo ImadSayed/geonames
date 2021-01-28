@@ -14,7 +14,6 @@ $('#btnSubmit').click(async function() {
                 $south = $data['data'][i]['south'];
                 $east = $data['data'][i]['east'];
                 $west = $data['data'][i]['west'];
-                $j = i;
             }
         }
 
@@ -30,7 +29,7 @@ $('#btnSubmit').click(async function() {
             }
         })
 
-        if ($result.status.name == "ok") {
+        if($result.status.name == "ok") {
             if($result['data'][0] == null || $result['data'][0] == undefined) {
                 $('#msg').html('Unfortunately the geonames api currently holds no weather data on this country!')
             }else{
