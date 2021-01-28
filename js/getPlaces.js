@@ -1,7 +1,7 @@
-$('#timezoneBtn').click(async function() {
+$('#placesBtn').click(async function() {
     
     let $north, $south, $east, $west; //need these to get variables below
-    let $longitude, $latitude; //need these variables for api fetch
+    //let $longitude, $latitude; //need these variables for api fetch
     try {
         $data = await $.ajax({
         url: "/weather/php/getCountryList.php",
@@ -18,8 +18,8 @@ $('#timezoneBtn').click(async function() {
             }
         }
 
-        $weatherResults = await $.ajax({
-            url: "/weather/php/getWeather.php",
+        $results = await $.ajax({
+            url: "/weather/php/getPlaces.php",
             type: 'POST',
             dataType: 'json',
             data: {
@@ -29,12 +29,12 @@ $('#timezoneBtn').click(async function() {
                 west: $west
             }
         })
-        
+        /*
         $longitude = $weatherResults['data'][0]['lng'];
         $latitude = $weatherResults['data'][0]['lat'];
 
         $results = await $.ajax({
-            url: "/weather/php/getTimezone.php",
+            url: "/weather/php/getPlaces.php",
             type: 'POST',
             dataType: 'json',
             data: {
@@ -46,20 +46,22 @@ $('#timezoneBtn').click(async function() {
                 console.error(e);
             }
         })
+        */
+
         if($results.status.name == "ok") {
-            if($weatherResults['data'][0] == null || $weatherResults['data'][0] == undefined) {
+            /*if($weatherResults['data'][0] == null || $weatherResults['data'][0] == undefined) {
                 $('#timezoneMsg').html('Unfortunately the geonames api currently holds no timezone data on this country!')
             }else{
-                $('#timezoneMsg').html('');
-                $('#currentTime').html($results['data']['time'].slice(-5));
-                $('#timezoneId').html($results['data']['timezoneId']);
-                $('#gmt').html($results['data']['gmtOffset']);
-                $('#dst').html($results['data']['dstOffset']);
-                $('#sunrise').html($results['data']['sunrise']);
-                $('#sunset').html($results['data']['sunset']);
-                $('#longitude').html($longitude);
-                $('#latitude').html($latitude);
-            }
+            */  
+                console.log("places results: "+$results['data'][0]);
+                $('#placesMsg').html('');
+                $('#population').html($results['data'][0]['population']);
+                $('#wiki').html($results['data'][0]['wikipedia']);
+
+                //$('#longitude').html($results['data']['timezoneId']);
+                //$('#latitude').html($results['data']['timezoneId']);
+
+            //}
         }
 
     }
