@@ -25,7 +25,7 @@ $('#btnSubmit').click(async function() {
                 north: $north,
                 south: $south,
                 east: $east,
-                west: $west,
+                west: $west
             }
         })
 

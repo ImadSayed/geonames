@@ -26,10 +26,10 @@ $('#timezoneBtn').click(async function() {
                 north: $north,
                 south: $south,
                 east: $east,
-                west: $west,
+                west: $west
             }
         })
-
+        
         $longitude = $weatherResults['data'][0]['lng'];
         $latitude = $weatherResults['data'][0]['lat'];
 
@@ -40,21 +40,23 @@ $('#timezoneBtn').click(async function() {
             data: {
                 longitude: $longitude,
                 latitude: $latitude
+            },
+            error: function(e) {
+                console.log("e: "+e);
+                console.error(e);
             }
         })
-
         if($results.status.name == "ok") {
-            if($result['data'][0] == null || $result['data'][0] == undefined) {
+            if($weatherResults['data'][0] == null || $weatherResults['data'][0] == undefined) {
                 $('#timezoneMsg').html('Unfortunately the geonames api currently holds no timezone data on this country!')
             }else{
                 $('#timezoneMsg').html('');
-                $('localName').html($result['data'][0]['toponymName']);
-                $('#currentTime').html($result['data'][0]['time']);
-                $('#timezoneId').html($result['data'][0]['timezoneId']);
-                $('#gmt').html($result['data'][0]['gmtOffset']);
-                $('#dst').html($result['data'][0]['dstOffset']);
-                $('#sunrise').html($result['data'][0]['sunrise']);
-                $('#sunset').html($result['data'][0]['sunset']);
+                $('#currentTime').html($results['data']['time'].slice(-5));
+                $('#timezoneId').html($results['data']['timezoneId']);
+                $('#gmt').html($results['data']['gmtOffset']);
+                $('#dst').html($results['data']['dstOffset']);
+                $('#sunrise').html($results['data']['sunrise']);
+                $('#sunset').html($results['data']['sunset']);
                 $('#longitude').html($longitude);
                 $('#latitude').html($latitude);
             }
