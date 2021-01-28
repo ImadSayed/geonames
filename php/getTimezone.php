@@ -1,7 +1,4 @@
 <?php
-    //echo '<script>';
-	//echo 'console.log(we are on getWeather.php page)';
-	//echo '</script>';
     $executionStartTime = microtime(true) / 1000;
     
 	$url='http://api.geonames.org/timezoneJSON?lat='.$_REQUEST['latitude'].'&lng='.$_REQUEST['longitude'].'&username=imadsayed';
@@ -12,12 +9,8 @@
 	curl_setopt($ch, CURLOPT_URL,$url);
 
 	$result=curl_exec($ch);
-	//echo '<script>';
-	//echo 'console.log('. $result  .')';
-    //echo '</script>';
 	
 	curl_close($ch);
-    //var_dump($result);
 
 	$decode = json_decode($result,true);	
 

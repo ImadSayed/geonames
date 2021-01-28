@@ -5,7 +5,6 @@ $('#placesBtn').click(async function() {
     $('#placesMsg').html('');
 
     let $north, $south, $east, $west; //need these to get variables below
-    //let $longitude, $latitude; //need these variables for api fetch
     try {
         $data = await $.ajax({
         url: "/weather/php/getCountryList.php",
@@ -33,32 +32,9 @@ $('#placesBtn').click(async function() {
                 west: $west
             }
         })
-        /*
-        $longitude = $weatherResults['data'][0]['lng'];
-        $latitude = $weatherResults['data'][0]['lat'];
-
-        $results = await $.ajax({
-            url: "/weather/php/getPlaces.php",
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                longitude: $longitude,
-                latitude: $latitude
-            },
-            error: function(e) {
-                console.log("e: "+e);
-                console.error(e);
-            }
-        })
-        */
 
         if($results.status.name == "ok") {
-            /*if($weatherResults['data'][0] == null || $weatherResults['data'][0] == undefined) {
-                $('#timezoneMsg').html('Unfortunately the geonames api currently holds no timezone data on this country!')
-            }else{
-            */  
-           //placesUL
-           //console.log("places results: ");
+
            if($results['data'] == undefined) {
                 $('#placesMsg').html('Unfortunately the geonames api currently holds no place data on this country!');
                 $('#loadingP').css('display','none');
@@ -82,15 +58,6 @@ $('#placesBtn').click(async function() {
                 $('#loadingP').css('display','none');
            }
            
-
-                //$('#placesMsg').html('');
-                //$('#population').html($results['data'][0]['population']);
-                //$('#wiki').html($results['data'][0]['wikipedia']);
-
-                //$('#longitude').html($results['data']['timezoneId']);
-                //$('#latitude').html($results['data']['timezoneId']);
-
-            //}
         }
 
     }
