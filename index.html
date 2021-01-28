@@ -11,20 +11,14 @@
     <body>
         <label for="dd_country">Select a <strong>country</strong> name:</label>
         <select id="dd_country"></select>
-        <table class="topTable">
-            <tr>
-                <th>Longitude</th><td id="longitude"></td>
-            </tr>
-            <tr>
-                <th>Latitude</th><td id="latitude"></td>
-            </tr>
-        </table>
 
         <div class="mainDiv">
             <div id="weatherDiv" class="tableDiv">
-                <button id="btnSubmit" class="btn">Get Weather</button>
+                <button id="btnSubmit" class="btn">Weather Stations</button>
                 <h2 id="msg" class="msg"></h2>
-                <table class="weatherTable">
+                <h4 id="loadingW" class="loading">Loading...</h4>
+                <div id="weatherDiv2"></div>
+                <!--<table class="weatherTable">
                     <tr>
                         <th>Weather Station</th>
                     </tr>
@@ -64,11 +58,13 @@
                         </tr>
                     </tbody>
                 </table>
+                -->
             </div>
 
             <div id="timezoneDiv" class="tableDiv">
-                <button id="timezoneBtn" class="btn">Get Timezone</button>
+                <button id="timezoneBtn" class="btn">Display Timezone</button>
                 <h2 id="timezoneMsg" class="msg"></h2>
+                <h4 id="loadingT" class="loading">Loading...</h4>
                 <hr />
                 <table class="timezoneTable">
                     <thead>
@@ -99,9 +95,16 @@
             </div>
 
             <div id="placesDiv" class="tableDiv">
-                <button id="placesBtn" class="btn">Find Country Info</button>
+                <button id="placesBtn" class="btn">List Places</button>
                 <h2 id="placesMsg" class="msg"></h2>
+                <h4 id="loadingP" class="loading">Loading...</h4>
                 <hr />
+
+                <ul id="placesUL">
+
+                </ul>
+
+                <!--
                 <table class="citiesTable">
                     <thead>
                         <tr>
@@ -119,6 +122,7 @@
                         <td>Cities</td><td></td>
                     </tr>
                 </table>
+                -->
             </div>
 
         </div>

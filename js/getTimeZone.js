@@ -1,5 +1,14 @@
 $('#timezoneBtn').click(async function() {
     
+    $('#loadingT').css('display','block');
+    $('#timezoneMsg').html('');
+    $('#currentTime').html('');
+    $('#timezoneId').html('');
+    $('#gmt').html('');
+    $('#dst').html('');
+    $('#sunrise').html('');
+    $('#sunset').html('');
+
     let $north, $south, $east, $west; //need these to get variables below
     let $longitude, $latitude; //need these variables for api fetch
     try {
@@ -48,23 +57,26 @@ $('#timezoneBtn').click(async function() {
         })
         if($results.status.name == "ok") {
             if($weatherResults['data'][0] == null || $weatherResults['data'][0] == undefined) {
-                $('#timezoneMsg').html('Unfortunately the geonames api currently holds no timezone data on this country!')
+                $('#timezoneMsg').html('Unfortunately the geonames api currently holds no timezone data on this country!');
             }else{
                 $('#timezoneMsg').html('');
                 $('#currentTime').html($results['data']['time'].slice(-5));
                 $('#timezoneId').html($results['data']['timezoneId']);
                 $('#gmt').html($results['data']['gmtOffset']);
                 $('#dst').html($results['data']['dstOffset']);
-                $('#sunrise').html($results['data']['sunrise']);
-                $('#sunset').html($results['data']['sunset']);
-                $('#longitude').html($longitude);
-                $('#latitude').html($latitude);
+                $('#sunrise').html($results['data']['sunrise'].slice(-5));
+                $('#sunset').html($results['data']['sunset'].slice(-5));
             }
+            
+            $('#loadingT').css('display','none');
         }
 
     }
     catch(err) {
-        console.error("getTimezone.js Error: "+err.message);
+
+        $('#timezoneMsg').html('Unfortunately the geonames api currently holds no timezone data on this country!');
+        $('#loadingT').css('display','none');
+        //console.error("getTimezone.js Error: "+err.message);
     }
 
 });

@@ -32,11 +32,23 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-
+}
+.weatherTable {
+    margin-bottom: 14px;  
+    border-bottom: 1px solid black;
+    text-align: center;     
 }
 .weatherTable tr :first-child {
     text-align: left;
 }
+.timezoneTable {
+    text-align: center;
+}
 .timezoneTable tr :first-child {
     text-align: left;
+}
+
+.loading {
+    display: none;
+    text-align: center;
 }

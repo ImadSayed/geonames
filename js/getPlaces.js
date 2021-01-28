@@ -1,5 +1,9 @@
 $('#placesBtn').click(async function() {
     
+    $('#placesUL').empty();
+    $('#loadingP').css('display','block');
+    $('#placesMsg').html('');
+
     let $north, $south, $east, $west; //need these to get variables below
     //let $longitude, $latitude; //need these variables for api fetch
     try {
@@ -53,10 +57,35 @@ $('#placesBtn').click(async function() {
                 $('#timezoneMsg').html('Unfortunately the geonames api currently holds no timezone data on this country!')
             }else{
             */  
-                console.log("places results: "+$results['data'][0]);
+           //placesUL
+           //console.log("places results: ");
+           if($results['data'] == undefined) {
+                $('#placesMsg').html('Unfortunately the geonames api currently holds no place data on this country!');
+                $('#loadingP').css('display','none');
+           } else {
                 $('#placesMsg').html('');
-                $('#population').html($results['data'][0]['population']);
-                $('#wiki').html($results['data'][0]['wikipedia']);
+                for(let i = 0; i < $results['data'].length; i++) {
+                    $newList = $('<ul>'+$results['data'][i]['toponymName']+'</ul>').css({'font-weight':'600', 'font-size':'large', 'margin-bottom': '20px', 'list-style-position': 'inside', 'list-style-type':'square'});
+                    $listItem1 = $('<li>Local Name:\t\t'+$results['data'][i]['name']+'</li>').css({'font-weight':'400', 'font-size':'medium'});
+                    $newList.append($listItem1);
+                    $listItem2 = $('<li>Wikipedia:\t\t'+$results['data'][i]['wikipedia']+'</li>').css({'font-weight':'400', 'font-size':'medium'});
+                    $newList.append($listItem2);
+                    $listItem3 = $('<li>Population:\t\t'+$results['data'][i]['population']+'</li>').css({'font-weight':'400', 'font-size':'medium'});
+                    $newList.append($listItem3);
+                    $listItem4 = $('<li>Longitude:\t\t'+$results['data'][i]['lng']+'</li>').css({'font-weight':'400', 'font-size':'medium'});
+                    $newList.append($listItem4);
+                    $listItem5 = $('<li>Latitude:\t\t'+$results['data'][i]['lat']+'</li>').css({'font-weight':'400', 'font-size':'medium'});
+                    $newList.append($listItem5);
+                    $('#placesUL').append($newList);
+                }
+
+                $('#loadingP').css('display','none');
+           }
+           
+
+                //$('#placesMsg').html('');
+                //$('#population').html($results['data'][0]['population']);
+                //$('#wiki').html($results['data'][0]['wikipedia']);
 
                 //$('#longitude').html($results['data']['timezoneId']);
                 //$('#latitude').html($results['data']['timezoneId']);
@@ -66,7 +95,9 @@ $('#placesBtn').click(async function() {
 
     }
     catch(err) {
-        console.error("getTimezone.js Error: "+err.message);
+        $('#placesMsg').html('Unfortunately the geonames api currently holds no place data on this country!');
+        $('#loadingP').css('display','none');
+        //console.error("getTimezone.js Error: "+err.message);
     }
 
 });
