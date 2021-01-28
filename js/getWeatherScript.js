@@ -34,7 +34,7 @@ $('#btnSubmit').click(async function() {
             if($result['data'][0] == null || $result['data'][0] == undefined) {
                 $('#msg').html('Unfortunately the geonames api currently holds no weather data on this country!')
             }else{
-                $('#weatherDiv').css('display','block');
+                $('#msg').html('');
                 $('#date').html($result['data'][0]['datetime']);
                 $('#station').html($result['data'][0]['stationName']);
                 $('#longitude').html($result['data'][0]['lng']);
