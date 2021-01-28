@@ -8,7 +8,6 @@ $('#btnSubmit').click(async function() {
         })
 
         $countryCode = $('#dd_country').val();
-        console.log("countrycode: "+$countryCode);
         for(let i = 0; i < $data['data'].length; i++) {
             if($countryCode === $data['data'][i]['countryCode']) {
                 $north = $data['data'][i]['north'];
@@ -16,10 +15,8 @@ $('#btnSubmit').click(async function() {
                 $east = $data['data'][i]['east'];
                 $west = $data['data'][i]['west'];
                 $j = i;
-                console.log("nsew:"+ $north + ", " + $south + ", " + $east + ", " + $west + ", i = "+$j);
             }
         }
-        console.log("2nd nsew:"+ $north + ", " + $south + ", " + $east + ", " + $west + ", i = "+$j);
 
         $result = await $.ajax({
             url: "/weather/php/getWeather.php",
@@ -32,9 +29,6 @@ $('#btnSubmit').click(async function() {
                 west: $west,
             }
         })
-            //success: function(result) {
-        console.log("weather results: "+$result['data']);
-        let date  = new Date();
 
         if ($result.status.name == "ok") {
             if($result['data'][0] == null || $result['data'][0] == undefined) {
@@ -58,34 +52,23 @@ $('#btnSubmit').click(async function() {
             //}
 
         /*
-        success: function(countryResult) {
+        success: function($data) {
             $countryCode = $('#dd_country').val();
             console.log("countrycode: "+$countryCode);
-            for(let i = 0; i < countryResult['data'].length; i++) {
-                if($countryCode === countryResult['data'][i]['countryCode']) {
-                    $north = countryResult['data'][i]['north'];
-                    $south = countryResult['data'][i]['south'];
-                    $east = countryResult['data'][i]['east'];
-                    $west = countryResult['data'][i]['west'];
+            for(let i = 0; i < $data['data'].length; i++) {
+                if($countryCode === $data['data'][i]['countryCode']) {
+                    $north = $data['data'][i]['north'];
+                    $south = $data['data'][i]['south'];
+                    $east = $data['data'][i]['east'];
+                    $west = $data['data'][i]['west'];
                     $j = i;
-                    console.log("nsew:"+ $north + ", " + $south + ", " + $east + ", " + $west + ", i = "+$j);
                 }
             }
-            //found parameters for following request
-             
         },
         error: function(e) {
             console.error("outer error: "+e.message);
         }
         })
-
-        
-
-        ,
-            error: function(error) {
-                console.error("inner error: "+error);
-            }
-        });
         */
 
 
