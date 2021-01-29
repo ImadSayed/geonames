@@ -9,63 +9,66 @@
         
     </head>
     <body>
-        <label for="dd_country">Select a <strong>country</strong> name:</label>
-        <select id="dd_country"></select>
+        <h4 id="loadingM" class="loading">Loading...</h4>
+        <div id="mainDiv">
+            <label for="dd_country">Select a <strong>country</strong> name:</label>
+            <select id="dd_country"></select>
 
-        <div class="mainDiv">
-            <div id="weatherDiv" class="tableDiv">
-                <button id="btnSubmit" class="btn">Weather Stations</button>
-                <h2 id="msg" class="msg"></h2>
-                <h4 id="loadingW" class="loading">Loading...</h4>
+            <div class="mainDiv" >
+                <div id="weatherDiv" class="tableDiv">
+                    <button id="btnSubmit" class="btn">View Weather Stations</button>
+                    <h2 id="msg" class="msg"></h2>
+                    <h4 id="loadingW" class="loading">Loading...</h4>
 
-                <div id="weatherDiv2"></div><!-- weather info will be added to this div when fetched -->
+                    <div id="weatherDiv2"></div><!-- weather info will be added to this div when fetched -->
 
-            </div>
+                </div>
 
-            <div id="timezoneDiv" class="tableDiv">
-                <button id="timezoneBtn" class="btn">Display Timezone</button>
-                <h2 id="timezoneMsg" class="msg"></h2>
-                <h4 id="loadingT" class="loading">Loading...</h4>
-                <hr />
-                <table class="timezoneTable">
-                    <thead>
+                <div id="timezoneDiv" class="tableDiv">
+                    <button id="timezoneBtn" class="btn">Display Timezone</button>
+                    <h2 id="timezoneMsg" class="msg"></h2>
+                    <h4 id="loadingT" class="loading">Loading...</h4>
+                    <hr />
+                    <table class="timezoneTable">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
                         <tr>
-                            <th>Attribute</th>
-                            <th>Data</th>
+                            <td>Current Time</td><td id="currentTime"></td>
                         </tr>
-                    </thead>
-                    <tr>
-                        <td>Current Time</td><td id="currentTime"></td>
-                    </tr>
-                    <tr>
-                        <td>Timezone ID</td><td id="timezoneId"></td>
-                    </tr>
-                    <tr>
-                        <td>GMT Offset</td><td id="gmt"></td>
-                    </tr>
-                    <tr>
-                        <td>DST Offset</td><td id="dst"></td>
-                    </tr>
-                    <tr>
-                        <td>Sunrise</td><td id="sunrise"></td>
-                    </tr>
-                    <tr>
-                        <td>Sunset</td><td id="sunset"></td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td>Timezone ID</td><td id="timezoneId"></td>
+                        </tr>
+                        <tr>
+                            <td>GMT Offset</td><td id="gmt"></td>
+                        </tr>
+                        <tr>
+                            <td>DST Offset</td><td id="dst"></td>
+                        </tr>
+                        <tr>
+                            <td>Sunrise</td><td id="sunrise"></td>
+                        </tr>
+                        <tr>
+                            <td>Sunset</td><td id="sunset"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="placesDiv" class="tableDiv">
+                    <button id="placesBtn" class="btn">List Places</button>
+                    <h2 id="placesMsg" class="msg"></h2>
+                    <h4 id="loadingP" class="loading">Loading...</h4>
+                    <hr />
+
+                    <ul id="placesUL"><!-- place info will be added to this ul when fetched -->
+
+                    </ul>
+                </div>
+
             </div>
-
-            <div id="placesDiv" class="tableDiv">
-                <button id="placesBtn" class="btn">List Places</button>
-                <h2 id="placesMsg" class="msg"></h2>
-                <h4 id="loadingP" class="loading">Loading...</h4>
-                <hr />
-
-                <ul id="placesUL"><!-- place info will be added to this ul when fetched -->
-
-                </ul>
-            </div>
-
         </div>
         <script type="application/javascript" src="js/jquery-2.2.3.min.js"></script>
 		<script type="application/javascript" src="js/getCountriesScript.js"></script>
