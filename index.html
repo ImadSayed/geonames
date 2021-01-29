@@ -2,7 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" >
-        <title>Most Recent Weather Observation</title>
+        <title>Geonames API Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="geonames, geonames api, weather, places, timezone, imadsayed, imad sayed">
         <meta name="description" content="a basic website to display the most recent weather observations" >
         <meta name="author" content="Imad Sayed" >
         <link rel="stylesheet" type="text/css" href="./css/styles.css" />
@@ -15,7 +17,12 @@
             <select id="dd_country"></select>
 
             <div class="mainDiv" >
-                <div id="weatherDiv" class="tableDiv">
+
+                <div id="weatherDiv">
+                    
+                    <a href="#timezoneDiv" class="anc">Go to Timezone Button</a>
+                    <a href="#placesDiv" class="anc">Go to Places Button</a>
+
                     <button id="btnSubmit" class="btn">View Weather Stations</button>
                     <h2 id="msg" class="msg"></h2>
                     <h4 id="loadingW" class="loading">Loading...</h4>
@@ -25,6 +32,10 @@
                 </div>
 
                 <div id="timezoneDiv" class="tableDiv">
+                    
+                    <a href="#weatherDiv" class="anc">Go to Weather Stations Button</a>
+                    <a href="#placesDiv" class="anc">Go to Places Button</a>
+
                     <button id="timezoneBtn" class="btn">Display Timezone</button>
                     <h2 id="timezoneMsg" class="msg"></h2>
                     <h4 id="loadingT" class="loading">Loading...</h4>
@@ -58,6 +69,10 @@
                 </div>
 
                 <div id="placesDiv" class="tableDiv">
+
+                    <a href="#weatherDiv" class="anc">Go to Weather Stations Button</a>
+                    <a href="#timezoneDiv" class="anc">Go to Timezone Button</a>
+
                     <button id="placesBtn" class="btn">List Places</button>
                     <h2 id="placesMsg" class="msg"></h2>
                     <h4 id="loadingP" class="loading">Loading...</h4>
@@ -67,6 +82,8 @@
 
                     </ul>
                 </div>
+
+                <a href="#mainDiv" class="anc">Back to Top of Page</a>
 
             </div>
         </div>
